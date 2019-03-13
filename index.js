@@ -24,6 +24,9 @@ app.route('/products')
 .get(products.get)
 .post(products.post)
 
+app.route('/products/:id')
+.delete(products.delete)
+
 app.route('/bookings')
 .get(bookings.get)
 .post(bookings.post)
