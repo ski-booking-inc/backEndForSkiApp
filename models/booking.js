@@ -4,8 +4,19 @@ let Schema = mongoose.Schema;
 //skapa ett schema
 let bookingSchema = new Schema({
   productId: String,
-  rentDate: String,
-  returnDate: String
+  chosenDates: {
+      startDate: String,
+      stopDate: String
+    },
+  userInfo: {
+      name: String,
+      length: Number,
+      weight: Number,
+      shoe: Number,
+      lift: Boolean,
+      helmet: Boolean,
+      skigoogles: Boolean
+  }
 });
 
 // skapa modell baserat på schemat
