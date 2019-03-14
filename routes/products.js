@@ -18,3 +18,11 @@ module.exports.post = async (req, res) => {
         res.status(500).send(err.stack);
     }
 }
+// DELETE
+module.exports.delete = async (req, res) => {
+  try {
+    res.status(200).send( await Product.deleteOne({_id:req.params.id}))
+} catch(err) {
+    res.status(500).send(err.stack);
+}
+}
