@@ -8,10 +8,7 @@ let productSchema = new Schema({
     info: String,
     price: Number,
     age: String,
-    packages: {
-      total: Number,
-      booked: Number
-    }
+    booked: Boolean
 })
 
 let Product = mongoose.model('product', productSchema);
