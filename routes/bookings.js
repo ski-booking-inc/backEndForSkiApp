@@ -16,6 +16,7 @@ module.exports.post = async (req, res) => {
     //skapa bokning och skicka dem till db
     let booking = {
       productId: req.body.chosenProduct._id,
+      artnr: req.body.chosenProduct.artnr,
       chosenDates: req.body.chosenDates,
       userInfo: req.body.userInfo
     }
