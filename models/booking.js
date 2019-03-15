@@ -4,6 +4,7 @@ let Schema = mongoose.Schema;
 //skapa ett schema
 let bookingSchema = new Schema({
   productId: String,
+  artnr: Number,
   chosenDates: {
       startDate: String,
       stopDate: String
