@@ -17,6 +17,7 @@ module.exports.post = async (req, res) => {
     let booking = {
       productId: req.body.chosenProduct._id,
       artnr: req.body.chosenProduct.artnr,
+      username: req.body.username,
       chosenDates: req.body.chosenDates,
       userInfo: req.body.userInfo
     }
