@@ -26,3 +26,14 @@ module.exports.delete = async (req, res) => {
     res.status(500).send(err.stack);
 }
 }
+
+//UPDATE
+module.exports.put = async (req, res) => {
+    try {
+        res.status(200).send(await Product.findOneAndUpdate({_id : req.body._id},
+            req.body))
+
+    } catch {
+        res.status(404).send(err.stack);
+    }
+}

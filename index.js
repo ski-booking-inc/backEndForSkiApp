@@ -23,13 +23,14 @@ let items = require('./routes/items');
 
 let app = express();
 
-//Routes connections 
+//Routes connections
 app.use(express.json());
 app.use(cors());
 
 app.route('/products')
   .get(products.get)
   .post(products.post)
+  .put(products.put)
 
 app.route('/products/:id')
   .delete(products.delete)
