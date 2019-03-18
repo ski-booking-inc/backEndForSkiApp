@@ -32,3 +32,12 @@ module.exports.post = async (req, res) => {
   }
 
 }
+// DELETE
+module.exports.delete = async (req, res) => {
+  try {
+    res.status(200).send( await Booking.deleteOne({_id:req.params.id}))
+    console.log('hejsan, nu kom vi hit!')
+} catch(err) {
+    res.status(500).send(err.stack);
+}
+}

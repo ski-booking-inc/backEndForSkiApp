@@ -39,6 +39,9 @@ app.route('/bookings')
   .get(bookings.get)
   .post(bookings.post)
 
+app.route('/bookings/:id')
+  .delete(bookings.delete)
+
 app.route('/auth')
   .post(auth.post)
 

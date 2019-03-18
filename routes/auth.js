@@ -45,8 +45,6 @@ module.exports.isAdmin = async (authtoken) => {
 
 module.exports.verifyToken = async (token) => {
 
-     console.log(token)
-
     try {
         // Verify JWT with process.env.SECRET, return token
         await jwt.verify(token.substring(7), process.env.PASSWORD)
