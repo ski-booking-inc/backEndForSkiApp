@@ -19,7 +19,6 @@ let products = require('./routes/products');
 let bookings = require('./routes/bookings');
 let auth = require('./routes/auth');
 let users = require('./routes/users');
-let items = require('./routes/items');
 
 let app = express();
 
@@ -47,9 +46,6 @@ app.route('/auth')
 
 app.route('/users')
   .post(users.post)
-
-app.route('/items')
-  .get(items.get)
 
 // Auth Middleware
 app.use((req, res, next) => {
