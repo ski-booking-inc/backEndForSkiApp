@@ -15,9 +15,7 @@ module.exports.get = async (req, res) => {
 module.exports.post = async (req, res) => {
 
     try {
-        if (await auth.isAdmin(req.headers.authorization)) {
             res.status(200).send(await Product.create(req.body));
-        }
     } catch (err) {
         res.status(500).send(err.stack);
     }
@@ -25,11 +23,9 @@ module.exports.post = async (req, res) => {
 // DELETE
 module.exports.delete = async (req, res) => {
     try {
-        if (await auth.isAdmin(req.headers.authorization)) {
             res.status(200).send(await Product.deleteOne({
                 _id: req.params.id
             }))
-        }
     } catch (err) {
         res.status(500).send(err.stack);
     }
