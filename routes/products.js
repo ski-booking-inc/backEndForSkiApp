@@ -35,7 +35,10 @@ module.exports.delete = async (req, res) => {
     }
 }
 
-//UPDATE
+
+
+
+//UPDATE IT
 module.exports.put = async (req, res) => {
     try {
         if (await auth.isAdmin(req.headers.authorization)) {
