@@ -2,8 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const port = process.env.PORT || 3000;
-const jsonwebtoken = require('jsonwebtoken'); // behöver vi denna?
+const jsonwebtoken = require('jsonwebtoken');
 
+//Mongoose connection
 mongoose.connect(`mongodb+srv://ski:${process.env.PASSWORD}@skiapp-898ys.mongodb.net/ski-app?retryWrites=true`, {
     useNewUrlParser: true
   })
@@ -47,7 +48,7 @@ app.route('/auth')
 app.route('/users')
   .post(users.post)
 
-// Auth Middleware
+// Auth middleware
 app.use((req, res, next) => {
   console.log(req.headers)
 
@@ -60,5 +61,5 @@ app.use((req, res, next) => {
 })
 
 app.listen(port, () => {
-  console.info(`API up n running port: ${port}`) //appen lyssnar på en specifik port
+  console.info(`API up n running port: ${port}`)
 })

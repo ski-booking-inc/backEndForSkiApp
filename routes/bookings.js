@@ -1,19 +1,18 @@
 let Booking = require('../models/booking');
 let Product = require('../models/product');
 
-// GET
+//Get
 module.exports.get = async (req, res) => {
   try {
-    res.status(200).send( await Booking.find({}) );
-  } catch(err){
+    res.status(200).send(await Booking.find({}));
+  } catch (err) {
     res.status(500).send(err.stack);
   }
 }
-
-// POST
+//Post
 module.exports.post = async (req, res) => {
   try {
-    //skapa bokning och skicka dem till db
+    //Create booking and post to Mongo
     let booking = {
       productId: req.body.chosenProduct._id,
       artnr: req.body.chosenProduct.artnr,
@@ -21,23 +20,20 @@ module.exports.post = async (req, res) => {
       chosenDates: req.body.chosenDates,
       userInfo: req.body.userInfo
     }
-
-    // write booking to Mongo
+    //Write booking to Mongo
     let resp = await Booking.create(booking);
-    // Send to FrontEnd
     res.status(200).send(resp);
-
-  } catch(err) {
+  } catch (err) {
     res.status(500).send(err.stack);
   }
-
 }
-// DELETE
+//Delete
 module.exports.delete = async (req, res) => {
   try {
-    res.status(200).send( await Booking.deleteOne({_id:req.params.id}))
-    console.log('hejsan, nu kom vi hit!')
-} catch(err) {
+    res.status(200).send(await Booking.deleteOne({
+      _id: req.params.id
+    }))
+  } catch (err) {
     res.status(500).send(err.stack);
-}
+  }
 }
